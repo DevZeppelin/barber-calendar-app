@@ -68,14 +68,14 @@ const Formulario = ({ clientes, setClientes, cliente, setCliente }) => {
 
   return (
     <div className="md:w-1/2 lg:2/5 mx-4">
-      <h2 className="font-black text-3xl text-center">Clientes</h2>
-      <p className="text-center my-2 font-bold">
+      <h2 className="font-black text-3xl text-center text-orange-600">Clientes</h2>
+      <p className="text-center my-2 font-bold text-white">
         Añade clientes y adminsitralos
       </p>
 
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded-lg py-6 px-4 mt-10"
+        className="bg-gray-600 border-2 border-orange-600 shadow-md rounded-lg py-6 px-4 mt-10 "
       >
         {error && (
           <div className="bg-red-600 w-full p-3 font-bold text-center">
@@ -83,7 +83,7 @@ const Formulario = ({ clientes, setClientes, cliente, setCliente }) => {
           </div>
         )}
         <div>
-          <label className="block p-2 font-bold uppercase" htmlFor="nombre">
+          <label className="block p-2 font-bold text-white uppercase" htmlFor="nombre">
             Nombre
           </label>
           <input
@@ -100,7 +100,7 @@ const Formulario = ({ clientes, setClientes, cliente, setCliente }) => {
           />
         </div>
         <div>
-          <label className="block p-2 font-bold uppercase" htmlFor="email">
+          <label className="block p-2 font-bold text-white uppercase" htmlFor="email">
             Teléfono
           </label>
           <input
@@ -116,7 +116,7 @@ const Formulario = ({ clientes, setClientes, cliente, setCliente }) => {
           />
         </div>
         <div>
-          <label className="block p-2 font-bold uppercase" htmlFor="fecha">
+          <label className="block p-2 font-bold text-white uppercase" htmlFor="fecha">
             Fecha
           </label>
           <input
@@ -132,7 +132,7 @@ const Formulario = ({ clientes, setClientes, cliente, setCliente }) => {
           />
         </div>
         <div>
-          <label className="block p-2 font-bold uppercase" htmlFor="hora">
+          <label className="block p-2 font-bold text-white uppercase" htmlFor="hora">
             Hora
           </label>
           <input
@@ -149,7 +149,7 @@ const Formulario = ({ clientes, setClientes, cliente, setCliente }) => {
         </div>
         <div>
           <label
-            className="block p-2 font-bold uppercase"
+            className="block p-2 font-bold text-white uppercase"
             htmlFor="descripcion"
           >
             Descripcion
@@ -168,7 +168,7 @@ const Formulario = ({ clientes, setClientes, cliente, setCliente }) => {
         </div>
         <input
           type="submit"
-          className="bg-indigo-600 rounded-lg hover:bg-indigo-700 p-3 cursor-pointer my-4 transition-all w-full text-white uppercase font-bold"
+          className=" bg-cyan-800 border-2 border-orange-600 rounded-lg hover:bg-orange-600 p-3 cursor-pointer my-4 transition-all w-full text-white uppercase font-bold"
           value={ (cliente.id) ? "Editar Turno" : "Agregar Turno"}
         />
       </form>
