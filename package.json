@@ -3,6 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "description": "App de gestion de turnos para barberias y negocios que trabajan con citas: agenda sin sobreturnos, clientes, recordatorios automaticos y confirmaciones por WhatsApp.",
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
