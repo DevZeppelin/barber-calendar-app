@@ -1,42 +1,29 @@
-import { useState, useEffect } from "react";
-import Formulario from "./components/Formulario";
-import Header from "./components/Header";
-import ListadoClientes from "./components/ListadoClientes";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import DashboardView from "./components/dashboard/DashboardView";
+import AgendaView from "./components/agenda/AgendaView";
+import ClientesView from "./components/clientes/ClientesView";
+import RecordatoriosView from "./components/recordatorios/RecordatoriosView";
+import ServiciosView from "./components/servicios/ServiciosView";
+import AjustesView from "./components/ajustes/AjustesView";
+import { DataProvider } from "./context/DataContext";
 
 function App() {
-  const Initial = JSON.parse(localStorage.getItem('clientes')) ?? []
-  const [clientes, setClientes] = useState(Initial);
-  const [cliente, setCliente] = useState({});
-
-    useEffect(() => {
-    localStorage.setItem('clientes', JSON.stringify( clientes ));
-  }, [clientes])
-
-
-  const eliminarId = (id) => {
-    const clientesActualizados = clientes.filter(
-      (variableTemporal) => variableTemporal.id !== id
-    );
-    setClientes(clientesActualizados);
-  };
-
   return (
-    <div className="my-8">
-      <Header />
-      <div className="mt-6 md:flex">
-        <Formulario
-          clientes={clientes}
-          setClientes={setClientes}
-          cliente={cliente}
-          setCliente={setCliente}
-        />
-        <ListadoClientes
-          clientes={clientes}
-          setCliente={setCliente}
-          eliminarId={eliminarId}
-        />
-      </div>
-    </div>
+    <DataProvider>
+      <HashRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route index element={<DashboardView />} />
+            <Route path="agenda" element={<AgendaView />} />
+            <Route path="clientes" element={<ClientesView />} />
+            <Route path="recordatorios" element={<RecordatoriosView />} />
+            <Route path="servicios" element={<ServiciosView />} />
+            <Route path="ajustes" element={<AjustesView />} />
+          </Route>
+        </Routes>
+      </HashRouter>
+    </DataProvider>
   );
 }
 
